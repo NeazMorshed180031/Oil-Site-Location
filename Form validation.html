@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1 class="text-white text-center font-weight-bold bg-success" style="font-size: 55px;"> Fill Up The Form </h1>
+
+	<div class="container"><br>
+		
+		<div class="col-lg-6 m-auto d-block">
+			
+			<form action="#" onsubmit="return validation()" class="bg-light">
+				
+				<div class="form-group">
+					<label for="user" class="font-weight-bold"> Username: </label>
+					<input type="text" name="user" class="form-control" id="user" autocomplete="off">
+					<span id="username" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-group">
+					<label class="font-weight-bold"> Your Location: </label>
+					<input type="text" name="pass" class="form-control" id="pass" autocomplete="off">
+					<span id="passwords" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-group">
+					<label class="font-weight-bold"> Your Qualification: </label>
+					<input type="text" name="conpass" class="form-control" id="conpass" autocomplete="off">
+					<span id="confrmpass" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-group">
+					<label class="font-weight-bold"> Experience: </label>
+					<input type="text" name="mobile" class="form-control" id="mobileNumber" autocomplete="off">
+					<span id="mobileno" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-group">
+					<label class="font-weight-bold"> Email: </label>
+					<input type="text" name="email" class="form-control" id="emails" autocomplete="off">
+					<span id="emailids" class="text-danger font-weight-bold"> </span>
+				</div>
+
+	<input type="submit" name="submit" value="Submit" class="btn btn-success"  onclick="window.location.href='/page2'"	autocomplete="off">
+
+
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		
+
+		function validation(){
+
+			var user = document.getElementById('user').value;
+			var pass = document.getElementById('pass').value;
+			var confirmpass = document.getElementById('conpass').value;
+			var mobileNumber = document.getElementById('mobileNumber').value;
+			var emails = document.getElementById('emails').value;
+
+
+
+
+
+			if(user == ""){
+				document.getElementById('username').innerHTML =" ** no field can be left blank. ";
+				return false;
+			}
+			if((user.length <= 2) || (user.length > 20)) {
+				document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
+				return false;	
+			}
+			if(!isNaN(user)){
+				document.getElementById('username').innerHTML =" ** only characters are allowed";
+				return false;
+			}
+
+
+
+
+
+
+
+			if(pass == ""){
+				document.getElementById('passwords').innerHTML =" ** no field can be left blank. ";
+				return false;
+				
+			}
+
+
+			
+
+
+
+			if(confirmpass == ""){
+				document.getElementById('confrmpass').innerHTML =" ** no field can be left blank. ";
+				return false;
+			}
+
+
+
+
+			if(mobileNumber == ""){
+				document.getElementById('mobileno').innerHTML =" ** no field can be left blank. ";
+				return false;
+		
+			}
+
+
+
+			if(emails == ""){
+				document.getElementById('emailids').innerHTML =" ** no field can be left blank. ";
+				return false;
+			}
+			if(emails.indexOf('@') <= 0 ){
+				document.getElementById('emailids').innerHTML =" ** @ Invalid Position";
+				return false;
+			}
+
+			if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+				document.getElementById('emailids').innerHTML =" ** . Invalid Position";
+				return false;
+			}
+		}
+
+	</script>
+
+</body>
+</html>
